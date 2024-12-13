@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Karas {
-  static Color primary = Color(0xffa85c1c);
+  static Color primary = Color(0xFFD508C3);
   static Color secondary = Color(0xe7efefef);
   static Color action = Color(0xffec055b);
   static Color action2 = Color(0xffec8005);

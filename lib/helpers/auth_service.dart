@@ -14,7 +14,6 @@ class AuthService {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   ClientController _clientController = Get.find();
 
-
   // Sign up with email and password
   Future<User?> signUpWithEmailAndPassword(String email, String password, String name, String phone) async {
     try {

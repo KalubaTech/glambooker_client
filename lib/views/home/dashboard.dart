@@ -129,7 +129,7 @@ class Dashboard extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text('Good Morning!'),
+                  child: Text('Hello 😊 ${_clientController.client.value.name.split(' ').first}!'),
                 ),
                 SizedBox(height: 10,),
                 Container(

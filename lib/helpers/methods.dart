@@ -74,7 +74,7 @@ class Methods{
 
   DataPrefetch _dataPrefetch = DataPrefetch();
   ClientController _clientController = Get.find();
-
+  //FUNCTION FOR BOOKING A SERVICE
   addBooking(serviceId, isPaid, status, dateBooked)async{
       var data = {
         "service":serviceId,

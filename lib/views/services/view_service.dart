@@ -183,8 +183,9 @@ class ViewService extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(serviceModel.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Karas.primary),),
+                Expanded(child: Text(serviceModel.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Karas.primary),)),
                 Row(
                   children: [
                     Icon(Icons.star, size: 14,color: Colors.orange,),
