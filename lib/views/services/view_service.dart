@@ -20,18 +20,28 @@ class ViewService extends StatelessWidget {
   DateTime dateTime = DateTime.now().add(Duration(days: 1));
 
   SalonController _salonController = Get.find();
+  BookingsController _bookingsController = Get.find();
+
+
 
   @override
   Widget build(BuildContext context) {
+    print(serviceModel.id);
     return DraggableHome(
       bottomSheet: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         width: double.infinity,
         child: GetBuilder<BookingsController>(
           builder: (bookingsController) {
-            return bookingsController.bookings.value.where((b)=>b.service==serviceModel).isNotEmpty?
-            Container():
-            Kalubtn(
+            //print(bookingsController.bookings.value.first.service.first.id);
+            if (bookingsController.bookings.value.first.service.first.id == serviceModel.id) {
+
+              return Container(
+                height: 40,
+                child: Text(''),
+              );
+            } else {
+              return Kalubtn(
                 height: 50,
                 borderRadius: 40,
                 label: '+ BOOK NOW',
@@ -46,16 +56,16 @@ class ViewService extends StatelessWidget {
                             height: 8,
                             width: 60,
                             decoration: BoxDecoration(
-                              color: Karas.background,
-                              borderRadius: BorderRadius.circular(20)
+                                color: Karas.background,
+                                borderRadius: BorderRadius.circular(20)
                             ),
                           ),
                           Expanded(
                               child: Container(
                                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                                 decoration: BoxDecoration(
-                                  color: Karas.background,
-                                  borderRadius: BorderRadius.circular(30)
+                                    color: Karas.background,
+                                    borderRadius: BorderRadius.circular(30)
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,6 +113,7 @@ class ViewService extends StatelessWidget {
                   );
                 }
             );
+            }
           }
         ),
       ),

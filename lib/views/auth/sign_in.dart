@@ -24,6 +24,7 @@ class _SignInState extends State<SignIn> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
+  var error = ''.obs;
 
   AuthService _authService = AuthService();
 
@@ -89,6 +90,7 @@ class _SignInState extends State<SignIn> {
 
                   var response = await _authService.signInWithEmailAndPassword(_emailController.text, _passwordController.text);
                   if(response==null){
+                    error.value = 'Incorrect Credentials';
                     setState(() {
                       _isLoading = false;
                     });
@@ -96,6 +98,16 @@ class _SignInState extends State<SignIn> {
                 },
               height: 45,
               borderRadius: 40,
+            ),
+            Obx(
+                ()=> Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  alignment: Alignment.center,
+                child: Text('${error.value}', style: TextStyle(
+                  color: Colors.red,
+
+                ),),
+              ),
             ),
             TextButton(
               onPressed: () {
